@@ -1,0 +1,53 @@
+<launch>
+
+    <!-- Transformation parameters after calibration -->
+
+    <node pkg="tf" type="static_transform_publisher" name="static_transform_publisher" args="0.644927 -0.0369269 0.924532 -0.454811 -0.0169744 0.889334 -0.0440946 /base_link /camera_link 100"/>
+
+  <!--  ************* Arm bringup stuff ************* -->
+
+  <include file="$(find turtlebot_arm_bringup)/launch/arm.launch" />
+
+  <node name="arbotix_gui" pkg="arbotix_python" type="arbotix_gui" output="screen"/>
+
+
+  <!--  ************* Moveit config stuff *************  -->
+
+  <!-- Load the URDF, SRDF and other .yaml configuration files on the param server -->
+  <include file="$(find turtlebot_arm_moveit_config)/launch/planning_context.launch">
+    <arg name="load_robot_description" value="true"/>
+  </include>
+
+  <!-- Run the main MoveIt executable to provide move groups -->
+  <include file="$(find turtlebot_arm_moveit_config)/launch/move_group.launch">
+    <arg name="allow_trajectory_execution" value="true"/>  
+    <arg name="fake_execution" value="false"/>
+    <arg name="info" value="true"/>
+  </include>
+
+
+  <!--  ************* Kinect bringup stuff ************* -->
+  <include file="$(find freenect_launch)/launch/freenect.launch" />
+
+
+
+  <!--  ************* Block manipulation stuff ************* -->
+  <include file="$(find turtlebot_arm_block_manipulation)/launch/block_manipulation.launch" />
+
+  <!--  ************* Multimaster stuff ************* -->
+  <include file="$(find multimaster)/launch/multimaster.launch" />
+
+  <node name="block_manipulation_demo" pkg="turtlebot_arm_block_manipulation" type="block_manipulation_demo" output="screen" >
+    <param name="arm_link" value="/arm_base_link" />
+    <param name="gripper_open" value="0.045" />
+    <param name="gripper_closed" value="0.02" />
+    <param name="z_up" value="0.1" />
+    <param name="table_height" value="-0.03" />
+	<param name="block_size" value="0.02" />
+    <param name="newPosX"    value= "-0.164048984647"/>
+    <param name="newPosY"    value= "0.0014069378376"/>
+  </node>
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find turtlebot_arm_block_manipulation)/demo/block_manipulation_demo.rviz" />
+
+</launch>
