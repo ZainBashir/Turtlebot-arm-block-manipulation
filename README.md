@@ -64,7 +64,9 @@ tested by the students from BSCV. We split our project into three parts:
 
 <!-- end list -->
 
-2.  **ARM SETUP:**
+
+
+**2. ARM SETUP:**
 
 To perform the pick and place task we first setup our PincherX arm and
 the Kinect. As shown in figure 1, our Kinect is fixed to one corner of
@@ -73,9 +75,9 @@ diagonal.
 
 |                       |                       |
 | --------------------- | --------------------- |
-| ![](media/image5.png) | ![](media/image6.png) |
+| ![](media/image5.jpg) | ![](media/image6.jpg) |
 | (a)                   | (b)                   |
-| ![](media/image7.png) | ![](media/image8.png) |
+| ![](media/image7.jpg) | ![](media/image8.jpg) |
 | (c)                   | (d)                   |
 
 Figure 1: Kinect and arm setup. (a) Left view (b) Front view (c) Right
@@ -91,7 +93,7 @@ size 27mm on the table. We then run the launch file named
 code to detect the checker board pattern and give an image (figure 2)
 which has four corner points labelled.
 
-![](media/image9.png)
+![](media/image9.jpg)
 
 Figure 2: Labelled corner points
 
@@ -102,9 +104,9 @@ figure.
 
 |                        |                        |
 | ---------------------- | ---------------------- |
-| ![](media/image10.png) | ![](media/image11.png) |
+| ![](media/image10.jpg) | ![](media/image11.jpg) |
 | (a)                    | (b)                    |
-| ![](media/image12.png) | ![](media/image13.png) |
+| ![](media/image12.jpg) | ![](media/image13.jpg) |
 | (c)                    | (d)                    |
 
 Figure 3: Placement of pincher on four corner points. (a) Point 1 (b)
@@ -158,31 +160,31 @@ each cluster, the external points are detected and so the maximum
 cluster size is computed; the cluster will correspond to a block if it
 fulfils all the following conditions:
 
-\[{(s}_{b} - t)\ \ {< \ l}_{x}\  < \ {(s}_{b}\sqrt{2} + t)\]
+(sb - t) < lx < (sb*sqrt(2) + t)
 
-\[{(s}_{b} - t)\  < \ l_{y}\  < \ {(s}_{b}\sqrt{2} + t)\]
+(sb - t) < ly < (sb*sqrt(2) + t)
 
-\[t\  < \ l_{z}\  < \ {(s}_{b} + t)\]
+t < lz < (sb + t)
 
-where \(l_{x},\ l_{y},\ l_{z}\) are the cluster’s dimensions in every
-axis, \(s_{b}\) is the size of the block to be detected and \(t\) is a
+where lx, ly, lz are the cluster’s dimensions in every
+axis, sb is the size of the block to be detected and t is a
 size tolerance set to 1 cm.
 
 If the cluster contains a block then its center position is computed as:
 
-\[x_{c}\  = \ x_{\min} + \frac{l_{x}}{2}\]
+xc = xmin + lx/2
 
-\[y_{c}\  = \ y_{\min} + \frac{l_{y}}{2}\]
+yc = ymin + ly/2
 
-\[z_{c}\  = \ z_{\max} - \frac{s_{b}}{2}\]
+zc = max - sb/2
 
-where \(x_{c},\ y_{c},\ z_{c}\) are the center coordinates of the
-cluster/block, and \(x_{\min},\ y_{\min},\ z_{\max}\) are the extreme
+where xc, yc, zc are the center coordinates of the
+cluster/block, and xmin, ymin, zmin are the extreme
 points of the block for each axis. These coordinates are then added into
 the list of detected blocks, taking the arm’s frame as reference. One
 example of the detection results can be seen in the following figure:
 
-![](media/image14.png)
+![](media/image14.jpg)
 
 Figure 4: Block detection as seen in RViz
 
@@ -360,7 +362,7 @@ block\_manip\_complete.launch
 Once executed, an RViz window should appear with the scene on the
 screen:
 
-![](media/image15.png)
+![](media/image15.jpg)
 
 Figure 5: RViz showing the scene with the robotic arm and a detected
 block
