@@ -369,3 +369,18 @@ block
 
 Then the program will wait for the completion message from the Visual
 Servoing task and begin the block detection.
+
+
+**7. MULTIMEDIA:**
+
+"Pick and place" video:
+
+https://www.youtube.com/watch?v=dZAcbrz18cU
+
+
+**8. REFERENCES:**
+
+- "Turtlebot Arm": http://wiki.ros.org/turtlebot_arm
+- "PhantomX Pincher Robot Arm": http://www.trossenrobotics.com/p/PhantomX-Pincher-Robot-Arm.aspx
+- "Turtlebot Arm by Nathan Crombez": https://github.com/NathanCrombez/turtlebot_arm
+- "ROS by Example", Patrick Goebel - ISBN: 5-800085-311092
