@@ -1,5 +1,8 @@
 /*
  * Copyright (c) 2011, Willow Garage, Inc.
+ *
+ * Modified by Yamid Espinel, Zain Bashir, Solène Guillaume - 2018
+ *
  * All rights reserved.
  *
  * Distribution and use in source and binary forms, with or without
